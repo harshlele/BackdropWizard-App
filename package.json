@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@bam.tech/react-native-image-resizer": "^3.0.7",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-native-fontawesome": "^0.3.0",
     "react": "18.2.0",
     "react-native": "0.72.4",
     "react-native-base64": "^0.2.1",
+    "react-native-svg": "^13.14.0",
     "react-native-toast-message": "^2.1.6",
     "react-native-vision-camera": "^2.16.1"
   },

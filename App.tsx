@@ -15,7 +15,8 @@ import {
   Button,
   useWindowDimensions,
   Image,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -28,6 +29,13 @@ import ImageResizer from '@bam.tech/react-native-image-resizer';
 import base64 from 'react-native-base64'
 
 import Toast from 'react-native-toast-message';
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCamera } from '@fortawesome/free-solid-svg-icons/faCamera'
+import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait'
+import { faFont } from '@fortawesome/free-solid-svg-icons/faFont'
+import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint'
+
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -110,7 +118,7 @@ function App(): JSX.Element {
       return;
     }
 
-    let key = "";
+    let key = "49d4612795f75352cd4a7c51f46f43ae2f4b73d6c67947d39e7503fc3b7c0827b1539d267493ca0473f0a4bfc34c9336";
 
 
     const form = new FormData();
@@ -273,92 +281,63 @@ function App(): JSX.Element {
             marginTop: 20
           }}
         >
-          <Button
+
+          <TouchableOpacity style={{
+            borderWidth: 1,
+            borderColor: 'rgba(0,0,0,0.2)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 60,
+            height: 60,
+            backgroundColor: 'red',
+            borderRadius: 10,
+          }}
             onPress={() => {
               genImage();
             }}
-            title="Reimagine"
-            color="red"
-          
-          /> 
+          >
+            <FontAwesomeIcon color='white' size={30} icon={faPortrait} />
+          </TouchableOpacity>
 
-          <Button
+          <TouchableOpacity style={{
+            borderWidth: 1,
+            borderColor: 'rgba(0,0,0,0.2)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 60,
+            height: 60,
+            backgroundColor: 'grey',
+            borderRadius: 10,
+          }}
             onPress={() => {
               genWholeImg();
             }}
-            title="prompt"
-            color="grey"
-          />
+          >
+            <FontAwesomeIcon color='white' size={30} icon={faFont} />
+          </TouchableOpacity>
 
           {
             photoE 
-            ? <Button
-                onPress={() => {
-                  printImage();
-                }}
-                title="Print Portrait"
-                color="green"
-
-              />
+            ? <TouchableOpacity style={{
+              borderWidth: 1,
+              borderColor: 'rgba(0,0,0,0.2)',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 60,
+              height: 60,
+              backgroundColor: 'blue',
+              borderRadius: 10,
+            }}
+              onPress={() => {
+                printImage();
+              }}
+            >
+              <FontAwesomeIcon color='white' size={30} icon={faPrint} />
+            </TouchableOpacity>
             :<></>
           }
         </View> 
 
-       {/* { <View
-         style={{
-          position: "absolute",
-          bottom: 50,
-          width: 200,
-          margin: width/2 - 100
-        }}
-        >
-        <Button
-          onPress={() => {
-            genImage();
-          }}
-          title="Reimagine"
-          color="red"
-         
-        /> 
-        </View>
-        <View
-         style={{
-          position: "absolute",
-          bottom: 5,
-          width: 200,
-          margin: width/2 - 100
-        }}
-        >
-        <Button
-          onPress={() => {
-            genWholeImg();
-          }}
-          title="Just use the prompt"
-          color="grey"
-         
-        />
-        </View>
-        {
-          photoE ? <View
-            style={{
-              position: "absolute",
-              bottom: -40,
-              width: 200,
-              margin: width / 2 - 100
-            }}
-          >
-            <Button
-              onPress={() => {
-                printImage();
-              }}
-              title="Print Portrait"
-              color="green"
-
-            />
-          </View>
-            : <></>
-        }
-        } */}
       </View>
       <Toast></Toast>
     </>);
@@ -377,21 +356,26 @@ function App(): JSX.Element {
               />
               : <></>
           }
-          <View style={{
+
+          <TouchableOpacity style={{
             position: "absolute",
             bottom: 100,
-            left: width / 2 - 75,
-            width: 150,
-            borderRadius: 50
-          }}>
-            <Button
-              onPress={() => {
-                takePhoto();
-              }}
-              title="Take a pic"
-              color="blue"
-            />
-          </View>
+            left: width / 2 - 50,
+            borderWidth:1,
+            borderColor:'rgba(0,0,0,0.2)',
+            alignItems:'center',
+            justifyContent:'center',
+            width:100,
+            height:100,
+            backgroundColor:'#fff',
+            borderRadius:50,
+          }}
+          onPress={() => {
+            takePhoto();
+          }}
+          >
+            <FontAwesomeIcon size={40} icon={ faCamera } />
+          </TouchableOpacity>
       </>
    
   );
